@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人主页 - Your Name</title>
+    <title>Personal Homepage - Dai Hang</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,9 +27,15 @@
         }
         h1 {
             color: #2c3e50;
+            font-size: 2em;
+        }
+        h2 {
+            color: #3498db;
+            font-size: 1.5em;
         }
         p {
             font-size: 18px;
+            line-height: 1.6;
         }
         a {
             color: #3498db;
@@ -39,19 +45,57 @@
         a:hover {
             text-decoration: underline;
         }
+        .emoji {
+            font-size: 1.5em;
+        }
+        .work-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #3498db;
+        }
+        .work-section h3 {
+            font-size: 1.4em;
+            color: #2c3e50;
+        }
+        .work-item {
+            font-size: 18px;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>你好，我是 Your Name</h1>
-    <p>欢迎访问我的个人主页！</p>
-    <p>我的邮箱: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
-    <p>你可以在以下平台找到我：</p>
-    <ul>
-        <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/yourname" target="_blank">LinkedIn</a></li>
-    </ul>
+    <h1>Hello, I’m Dai Hang</h1>
+    <h2>A sophomore at Peking University, striving to balance courses, research, and social work</h2>
+    <p>Welcome to approach me on any topic!</p>
+    
+    <p class="emoji">👋 Hi, I’m <strong>@daihangpku</strong></p>
+    <p class="emoji">👀 I’m interested in <strong>manipulation</strong> and <strong>3D reconstruction</strong>.</p>
+    <p class="emoji">🌱 I’m currently learning <strong>CG & CV</strong>.</p>
+    <p class="emoji">💞️ I’m looking to collaborate on <strong>in-hand object reconstruction</strong>.</p>
+    
+    <p>📫 How to reach me:</p>
+    <p>
+        <a href="mailto:daihang2300012956@163.com">daihang2300012956@163.com</a> or 
+        <a href="mailto:daihang@stu.pku.edu.cn">daihang@stu.pku.edu.cn</a>
+    </p>
+
+    <!-- Work Section -->
+    <div class="work-section">
+        <h3>My Work & Research</h3>
+        <p>I am currently working on several exciting projects in the field of computer vision and manipulation. Here are some of the areas I am focusing on:</p>
+        
+        <div class="work-item">
+            <strong>1. In-Hand Object Reconstruction:</strong> Developing methods for reconstructing and manipulating objects in hand for robotic applications.
+        </div>
+        <div class="work-item">
+            <strong>2. 3D Reconstruction for Augmented Reality:</strong> Researching techniques for creating realistic 3D models for AR environments.
+        </div>
+        <div class="work-item">
+            <strong>3. Computer Vision for Robotics:</strong> Working on enhancing visual perception for robots to understand and interact with their environments more effectively.
+        </div>
+    </div>
 </div>
 
 </body>
