@@ -10,20 +10,24 @@
             background-color: #f4f4f4;
             color: #333;
             margin: 0;
-            padding: 0;
+            padding: 40px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
+            align-items: flex-start;
+            min-height: 100vh;
         }
         .container {
             background-color: white;
             border-radius: 10px;
             padding: 40px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 600px;
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            gap: 40px;
+        }
+        .left, .right {
+            flex: 1;
         }
         h1 {
             color: #2c3e50;
@@ -32,6 +36,7 @@
         h2 {
             color: #3498db;
             font-size: 1.5em;
+            margin-top: 10px;
         }
         p {
             font-size: 18px;
@@ -49,13 +54,14 @@
             font-size: 1.5em;
         }
         .work-section {
-            margin-top: 40px;
-            padding-top: 20px;
             border-top: 2px solid #3498db;
+            padding-top: 20px;
+            margin-top: 20px;
         }
         .work-section h3 {
-            font-size: 1.4em;
+            font-size: 1.8em;
             color: #2c3e50;
+            margin-bottom: 20px;
         }
         .work-item {
             font-size: 18px;
@@ -66,34 +72,36 @@
 <body>
 
 <div class="container">
-    <h1>Hello, I’m Dai Hang</h1>
-    <h2>A sophomore at Peking University, striving to balance courses, research, and social work</h2>
-    <p>Welcome to approach me on any topic!</p>
-    
-    <p class="emoji">👋 Hi, I’m <strong>@daihangpku</strong></p>
-    <p class="emoji">👀 I’m interested in <strong>manipulation</strong> and <strong>3D reconstruction</strong>.</p>
-    <p class="emoji">🌱 I’m currently learning <strong>CG & CV</strong>.</p>
-    <p class="emoji">💞️ I’m looking to collaborate on <strong>in-hand object reconstruction</strong>.</p>
-    
-    <p>📫 How to reach me:</p>
-    <p>
-        <a href="mailto:daihang2300012956@163.com">daihang2300012956@163.com</a> or 
-        <a href="mailto:daihang@stu.pku.edu.cn">daihang@stu.pku.edu.cn</a>
-    </p>
-
-    <!-- Work Section -->
-    <div class="work-section">
-        <h3>My Work & Research</h3>
-        <p>I am currently working on several exciting projects in the field of computer vision and manipulation. Here are some of the areas I am focusing on:</p>
+    <div class="left">
+        <h1>Hello, I’m Dai Hang</h1>
+        <h2>A sophomore at Peking University, striving to balance courses, research, and social work</h2>
+        <p>Welcome to approach me on any topic!</p>
         
-        <div class="work-item">
-            <strong>1. In-Hand Object Reconstruction:</strong> Developing methods for reconstructing and manipulating objects in hand for robotic applications.
-        </div>
-        <div class="work-item">
-            <strong>2. Real2Sim:</strong> Bridging the Sim2Real gap in robotic manipulation.
-        </div>
-        <div class="work-item">
-            <strong>3. Computer Vision for Robotics:</strong> Working on enhancing visual perception for robots to understand and interact with their environments more effectively.
+        <p class="emoji">👋 Hi, I’m <strong>@daihangpku</strong></p>
+        <p class="emoji">👀 I’m interested in <strong>manipulation</strong> and <strong>3D reconstruction</strong>.</p>
+        <p class="emoji">🌱 I’m currently learning <strong>CG & CV</strong>.</p>
+        <p class="emoji">💞️ I’m looking to collaborate on <strong>in-hand object reconstruction</strong>.</p>
+        
+        <p>📫 How to reach me:</p>
+        <p>
+            <a href="mailto:daihang2300012956@163.com">daihang2300012956@163.com</a> or 
+            <a href="mailto:daihang@stu.pku.edu.cn">daihang@stu.pku.edu.cn</a>
+        </p>
+    </div>
+    <div class="right">
+        <div class="work-section">
+            <h3>My Work & Research</h3>
+            <p>I am currently working on several exciting projects in the field of computer vision and manipulation. Here are some of the areas I am focusing on:</p>
+            
+            <div class="work-item">
+                <strong>1. In-Hand Object Reconstruction:</strong> Developing methods for reconstructing and manipulating objects in hand for robotic applications.
+            </div>
+            <div class="work-item">
+                <strong>2. Real2Sim:</strong> Bridging the Sim2Real gap in robotic manipulation.
+            </div>
+            <div class="work-item">
+                <strong>3. Computer Vision for Robotics:</strong> Working on enhancing visual perception for robots to understand and interact with their environments more effectively.
+            </div>
         </div>
     </div>
 </div>
