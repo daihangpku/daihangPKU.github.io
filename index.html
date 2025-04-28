@@ -33,14 +33,9 @@
       top: 0;
       z-index: 100;
     }
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--primary-color);
-    }
+    .logo { font-size: 1.6rem; font-weight: 600; color: var(--primary-color); }
     nav ul { list-style: none; display: flex; gap: 2rem; }
     nav a, #lang-toggle {
-      text-decoration: none;
       color: var(--text-color);
       font-weight: 500;
       cursor: pointer;
@@ -48,8 +43,15 @@
       border: none;
       font-family: inherit;
       transition: color 0.3s;
+      text-decoration: none;
     }
     nav a:hover, #lang-toggle:hover { color: var(--primary-color); }
+
+    /* Language visibility based on html[lang] attribute */
+    .lang-en { display: inline; }
+    .lang-zh { display: inline; }
+    html[lang="en"] .lang-zh { display: none; }
+    html[lang="zh"] .lang-en { display: none; }
 
     header {
       background: url('https://via.placeholder.com/1600x900?text=Research+Lab') center/cover no-repeat;
@@ -72,37 +74,13 @@
       color: var(--primary-color);
       padding: 0 1rem;
     }
-    .profile-photo {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--primary-color);
-      margin-bottom: 1rem;
-    }
+    .profile-photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary-color); margin-bottom: 1rem; }
     .hero h1 { font-size: 2.8rem; font-weight: 600; margin-bottom: 0.5rem; }
     .hero p { font-size: 1.1rem; margin-bottom: 1rem; }
-    .btn {
-      display: inline-block;
-      padding: 0.7rem 1.4rem;
-      background: var(--primary-color);
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: opacity 0.3s;
-    }
+    .btn { display: inline-block; padding: 0.7rem 1.4rem; background: var(--primary-color); color: #fff; border: none; border-radius: 4px; text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
     .btn:hover { opacity: 0.8; }
 
-    section {
-      padding: 3rem 5%;
-      max-width: 1000px;
-      margin: 2rem auto;
-      background: var(--section-bg);
-      border-radius: 8px;
-      box-shadow: 0 2px 8px var(--shadow-color);
-    }
+    section { padding: 3rem 5%; max-width: 1000px; margin: 2rem auto; background: var(--section-bg); border-radius: 8px; box-shadow: 0 2px 8px var(--shadow-color); }
     .title { font-size: 1.9rem; margin-bottom: 1.5rem; color: var(--primary-color); border-left: 4px solid var(--primary-color); padding-left: 0.5rem; }
     .about p { margin-bottom: 1rem; }
     .research ul { list-style: none; padding: 0; }
@@ -113,9 +91,8 @@
     .contact p, .contact a { font-size: 1rem; }
     .contact a { color: var(--primary-color); text-decoration: none; }
     .contact a:hover { text-decoration: underline; }
-    footer { text-align: center; padding: 1.5rem 0; font-size: 0.9rem; color: #555; }
 
-    .lang-zh { display: none; }
+    footer { text-align: center; padding: 1.5rem 0; font-size: 0.9rem; color: #555; }
 
     @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .hero p { font-size: 1rem; } }
   </style>
@@ -127,7 +104,7 @@
       <li><a href="#about"><span class="lang-en">About</span><span class="lang-zh">关于</span></a></li>
       <li><a href="#research"><span class="lang-en">Research</span><span class="lang-zh">研究</span></a></li>
       <li><a href="#contact"><span class="lang-en">Contact</span><span class="lang-zh">联系</span></a></li>
-      <li><button id="lang-toggle">中文</button></li>
+      <li><button id="lang-toggle"><span class="lang-en">中文</span><span class="lang-zh">EN</span></button></li>
     </ul>
   </nav>
 
@@ -142,7 +119,7 @@
 
   <section id="about">
     <h2 class="title"><span class="lang-en">About Me</span><span class="lang-zh">关于我</span></h2>
-    <p><span class="lang-en">I am Hang Dai, a sophomore at School of EECS, Peking University majoring in Information and Computing Science...</span><span class="lang-zh">我是戴航，北京大学信息科学与计算科学专业二年级学生，研究方向包括手中物体重建和三维操控...</span></p>
+    <p><span class="lang-en">I am Hang Dai, a sophomore at School of EECS, Peking University majoring in Information and Computing Science. My research focuses on cutting-edge topics in robotics and computer vision, including in-hand object reconstruction and 3D manipulation...</span><span class="lang-zh">我是戴航，北京大学信息科学与计算科学专业二年级学生，我的研究集中在机器人与计算机视觉前沿课题，包括手中物体重建与三维操控...</span></p>
   </section>
 
   <section id="research">
@@ -170,14 +147,11 @@
   </footer>
 
   <script>
-    const toggleBtn = document.getElementById('lang-toggle');
-    toggleBtn.addEventListener('click', () => {
-      document.querySelectorAll('.lang-en').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
-      document.querySelectorAll('.lang-zh').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
-      toggleBtn.textContent = toggleBtn.textContent === '中文' ? 'EN' : '中文';
+    const btn = document.getElementById('lang-toggle');
+    btn.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.lang = html.lang === 'en' ? 'zh' : 'en';
     });
-    // 初始化：隐藏中文内容
-    document.querySelectorAll('.lang-zh').forEach(el => el.style.display = 'none');
   </script>
 </body>
 </html>
