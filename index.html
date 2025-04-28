@@ -4,114 +4,180 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personal Homepage - Dai Hang</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --primary-color: #3366cc;
+      --text-color: #222;
+      --section-bg: #fff;
+      --border-color: #dde5ed;
+      --shadow-color: rgba(0, 0, 0, 0.05);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      margin: 0;
-      padding: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-    }
-    .container {
-      background-color: white;
-      border-radius: 10px;
-      padding: 40px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 90%;
-      max-width: 1200px;
-      display: flex;
-      gap: 40px;
-    }
-    .left, .right {
-      flex: 1;
-    }
-    h1 {
-      color: #2c3e50;
-      font-size: 2em;
-    }
-    h2 {
-      color: #3498db;
-      font-size: 1.5em;
-      margin-top: 10px;
-    }
-    p {
-      font-size: 18px;
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Montserrat', sans-serif;
       line-height: 1.6;
     }
-    a {
-      color: #3498db;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background: var(--section-bg);
+      box-shadow: 0 2px 4px var(--shadow-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav a, #lang-toggle {
       text-decoration: none;
-      font-weight: bold;
+      color: var(--text-color);
+      font-weight: 500;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      transition: color 0.3s;
     }
-    a:hover {
-      text-decoration: underline;
-    }
-    .emoji {
-      font-size: 1.5em;
-    }
-    .work-section {
-      border-top: 2px solid #3498db;
-      padding-top: 20px;
-      margin-top: 20px;
-    }
-    .work-section h3 {
-      font-size: 1.8em;
-      color: #2c3e50;
-      margin-bottom: 20px;
-    }
-    .work-item {
-      font-size: 18px;
-      margin: 10px 0;
-    }
+    nav a:hover, #lang-toggle:hover { color: var(--primary-color); }
 
-    /* 响应式：在屏幕宽度小于 768px 时，改为上下排列 */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
+    header {
+      background: url('https://via.placeholder.com/1600x900?text=Research+Lab') center/cover no-repeat;
+      height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
     }
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.7);
+    }
+    .hero {
+      position: relative;
+      max-width: 700px;
+      text-align: center;
+      color: var(--primary-color);
+      padding: 0 1rem;
+    }
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    .hero h1 { font-size: 2.8rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.1rem; margin-bottom: 1rem; }
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.4rem;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+    .btn:hover { opacity: 0.8; }
+
+    section {
+      padding: 3rem 5%;
+      max-width: 1000px;
+      margin: 2rem auto;
+      background: var(--section-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px var(--shadow-color);
+    }
+    .title { font-size: 1.9rem; margin-bottom: 1.5rem; color: var(--primary-color); border-left: 4px solid var(--primary-color); padding-left: 0.5rem; }
+    .about p { margin-bottom: 1rem; }
+    .research ul { list-style: none; padding: 0; }
+    .research li { margin-bottom: 1rem; padding: 1rem; border: 1px solid var(--border-color); border-radius: 6px; transition: transform 0.3s; }
+    .research li:hover { transform: translateY(-4px); }
+    .research h3 { margin-bottom: 0.3rem; font-size: 1.2rem; font-weight: 600; }
+    .research p { font-size: 0.95rem; }
+    .contact p, .contact a { font-size: 1rem; }
+    .contact a { color: var(--primary-color); text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+    footer { text-align: center; padding: 1.5rem 0; font-size: 0.9rem; color: #555; }
+
+    .lang-zh { display: none; }
+
+    @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .hero p { font-size: 1rem; } }
   </style>
 </head>
 <body>
+  <nav>
+    <div class="logo"><span class="lang-en">Dai Hang</span><span class="lang-zh">戴航</span></div>
+    <ul>
+      <li><a href="#about"><span class="lang-en">About</span><span class="lang-zh">关于</span></a></li>
+      <li><a href="#research"><span class="lang-en">Research</span><span class="lang-zh">研究</span></a></li>
+      <li><a href="#contact"><span class="lang-en">Contact</span><span class="lang-zh">联系</span></a></li>
+      <li><button id="lang-toggle">中文</button></li>
+    </ul>
+  </nav>
 
-<div class="container">
-  <div class="left">
-    <h1>Hello, I’m Dai Hang</h1>
-    <h2>A sophomore at Peking University, striving to balance courses, research, and social work</h2>
-    <p>Welcome to approach me on any topic!</p>
-
-    <p class="emoji">👋 Hi, I’m <strong>@daihangpku</strong></p>
-    <p class="emoji">👀 I’m interested in <strong>manipulation</strong> and <strong>3D reconstruction</strong>.</p>
-    <p class="emoji">🌱 I’m currently learning <strong>CG & CV</strong>.</p>
-    <p class="emoji">💞️ I’m looking to collaborate on <strong>in-hand object reconstruction</strong>.</p>
-
-    <p>📫 How to reach me:</p>
-    <p>
-      <a href="mailto:daihang2300012956@163.com">daihang2300012956@163.com</a> or 
-      <a href="mailto:daihang@stu.pku.edu.cn">daihang@stu.pku.edu.cn</a>
-    </p>
-  </div>
-  <div class="right">
-    <div class="work-section">
-      <h3>My Work & Research</h3>
-      <p>I am currently working on several exciting projects in the field of computer vision and manipulation. Here are some of the areas I am focusing on:</p>
-
-      <div class="work-item">
-        <strong>1. In-Hand Object Reconstruction:</strong> Developing methods for reconstructing and manipulating objects in hand for robotic applications.
-      </div>
-      <div class="work-item">
-        <strong>2. Real2Sim:</strong> Bridging the Sim2Real gap in robotic manipulation.
-      </div>
-      <div class="work-item">
-        <strong>3. Computer Vision for Robotics:</strong> Working on enhancing visual perception for robots to understand and interact with their environments more effectively.
-      </div>
+  <header>
+    <div class="hero">
+      <img src="https://via.placeholder.com/150" alt="Dai Hang Photo" class="profile-photo">
+      <h1><span class="lang-en">Hang Dai</span><span class="lang-zh">戴航</span></h1>
+      <p><span class="lang-en">A sophomore at Peking University</span><span class="lang-zh">北京大学二年级学生</span></p>
+      <a href="#about" class="btn"><span class="lang-en">Learn More</span><span class="lang-zh">了解更多</span></a>
     </div>
-  </div>
-</div>
+  </header>
 
+  <section id="about">
+    <h2 class="title"><span class="lang-en">About Me</span><span class="lang-zh">关于我</span></h2>
+    <p><span class="lang-en">I am Hang Dai, a sophomore at School of EECS, Peking University majoring in Information and Computing Science...</span><span class="lang-zh">我是戴航，北京大学信息科学与计算科学专业二年级学生，研究方向包括手中物体重建和三维操控...</span></p>
+  </section>
+
+  <section id="research">
+    <h2 class="title"><span class="lang-en">My Work & Research</span><span class="lang-zh">我的工作与研究</span></h2>
+    <ul>
+      <li><h3><span class="lang-en">In-Hand Object Reconstruction</span><span class="lang-zh">手中物体重建</span></h3>
+        <p><span class="lang-en">Developing methods for reconstructing and manipulating objects in hand...</span><span class="lang-zh">开发手中物体重建与操控方法...</span></p></li>
+      <li><h3><span class="lang-en">Real2Sim2Real</span><span class="lang-zh">真实到仿真再到真实</span></h3>
+        <p><span class="lang-en">Bridging the Sim2Real gap in robotic manipulation.</span><span class="lang-zh">弥合机器人操控中的仿真-现实差距。</span></p></li>
+      <li><h3><span class="lang-en">Computer Vision for Robotics</span><span class="lang-zh">机器人视觉</span></h3>
+        <p><span class="lang-en">Enhancing visual perception for robots to interact effectively.</span><span class="lang-zh">提升机器人视觉感知与交互能力。</span></p></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2 class="title"><span class="lang-en">Contact</span><span class="lang-zh">联系</span></h2>
+    <p>📫 <span class="lang-en">How to reach me:</span><span class="lang-zh">联系我：</span></p>
+    <p><a href="mailto:daihang2300012956@163.com">daihang2300012956@163.com</a></p>
+    <p><a href="mailto:daihang@stu.pku.edu.cn">daihang@stu.pku.edu.cn</a></p>
+    <p><a href="https://github.com/daihangpku" target="_blank">GitHub</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 <span class="lang-en">Dai Hang | Peking University</span><span class="lang-zh">戴航 | 北京大学</span></p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('lang-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.querySelectorAll('.lang-en').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
+      document.querySelectorAll('.lang-zh').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
+      toggleBtn.textContent = toggleBtn.textContent === '中文' ? 'EN' : '中文';
+    });
+    // 初始化：隐藏中文内容
+    document.querySelectorAll('.lang-zh').forEach(el => el.style.display = 'none');
+  </script>
 </body>
 </html>
