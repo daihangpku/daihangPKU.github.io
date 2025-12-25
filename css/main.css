@@ -1223,7 +1223,7 @@ ul.social-links li:last-child a {
 }
 /* End of Direction-Aware Hover Effect */
 /* 让portfolio-row类型的item右侧说明常显，取消悬浮层效果 */
-.portfolio-row a > div {
+.portfolio-row .portfolio-info {
   position: static !important;
   background: none !important;
   color: #222 !important;
@@ -1235,13 +1235,12 @@ ul.social-links li:last-child a {
   transition: none !important;
   box-shadow: none !important;
   display: block !important;
-  
 }
 
-.portfolio-row a > div h5,
-.portfolio-row a > div small,
-.portfolio-row a > div i,
-.portfolio-row a > div p {
+.portfolio-row .portfolio-info h5,
+.portfolio-row .portfolio-info small,
+.portfolio-row .portfolio-info i,
+.portfolio-row .portfolio-info p {
   color: #222 !important;
   text-shadow: none !important;
   position: static !important;
@@ -1249,11 +1248,12 @@ ul.social-links li:last-child a {
   line-height: 1.2;
 }
 
-.portfolio-row a > div p {
+.portfolio-row .portfolio-info p {
   margin: 8px 0 0 0;
   font-size: 14px;
   color: #555 !important;
 }
+
 .portfolio-row {
   width: 100% !important;
   float: none !important;
@@ -1262,63 +1262,19 @@ ul.social-links li:last-child a {
   margin-bottom: 24px;
   padding: 0;
 }
-/* 大屏常显，窄屏悬浮 */
+
+/* Mobile view: Stack image and text */
 @media (max-width: 991px) {
-  .portfolio-row {
-    width: 50% !important;   /* 或33.33333%根据需要调整 */
-    float: left !important;
-    clear: none !important;
-    margin-bottom: 16px;
-    padding: 0.5em;
-    box-sizing: border-box;
+  .portfolio-row .portfolio-wrapper {
+    display: block !important; /* Disable flexbox on mobile */
   }
-  .portfolio-row a {
-    display: block !important;
-    position: relative !important;
-    flex-direction: initial !important;
-    align-items: initial !important;
-    min-height: initial !important;
-    padding: 0 !important;
-  }
-  .portfolio-row a > img {
+  .portfolio-row img {
     width: 100% !important;
     margin-right: 0 !important;
-    border-radius: 8px !important;
-    display: block !important;
+    margin-bottom: 15px !important;
   }
-  .portfolio-row a > div {
-    position: absolute !important;
-    background: rgba(79,86,94,0.7) !important;
-    color: #fff !important;
-    width: 100% !important;
-    height: 100% !important;
-    left: -100% !important;
-    top: 0 !important;
-    padding: 5px 20px !important;
-    transition: all 0.3s ease-in-out !important;
-    box-shadow: none !important;
-    display: block !important;
-  }
-  .portfolio-row a:hover > div,
-  .portfolio-row a:focus > div {
-    left: 0 !important;
-  }
-  .portfolio-row a > div h5,
-  .portfolio-row a > div small,
-  .portfolio-row a > div i,
-  .portfolio-row a > div p {
-    color: #fff !important;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.2) !important;
-    position: static !important;
-    margin: 0 0 8px 0;
-  }
-  .portfolio-row a > div p {
-    color: #eee !important;
-  }
-}
-@media (max-width: 600px) {
-  .portfolio-row {
-    width: 100% !important;
+  .portfolio-row .portfolio-info {
+    padding: 0 10px !important;
   }
 }
 /* =======================================
