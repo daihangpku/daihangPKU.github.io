@@ -1248,6 +1248,27 @@ ul.social-links li:last-child a {
   line-height: 1.2;
 }
 
+/* Increase paper title size for portfolio-row items */
+.portfolio-row .portfolio-info h5 {
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+/* Keep Paper and Website links on the same line on desktop */
+.portfolio-row .portfolio-info a {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin-right: 12px;
+}
+.portfolio-row .portfolio-info a small {
+  display: inline-block;
+  margin-right: 6px;
+}
+.portfolio-row .portfolio-info a i {
+  margin-left: 4px;
+  color: #666;
+}
 .portfolio-row .portfolio-info p {
   margin: 8px 0 0 0;
   font-size: 14px;
@@ -1275,6 +1296,11 @@ ul.social-links li:last-child a {
   }
   .portfolio-row .portfolio-info {
     padding: 0 10px !important;
+  }
+  .portfolio-row .portfolio-info a {
+    display: inline-block; /* keep small spacing on mobile */
+    margin-right: 8px;
+    white-space: normal;
   }
 }
 /* =======================================
