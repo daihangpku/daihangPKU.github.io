@@ -1244,22 +1244,23 @@ ul.social-links li:last-child a {
   color: #222 !important;
   text-shadow: none !important;
   position: static !important;
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;  /* 减小间距 */
   line-height: 1.2;
 }
 
 /* Increase paper title size for portfolio-row items */
 .portfolio-row .portfolio-info h5 {
-  font-size: 20px;
-  line-height: 1.15;
+  font-size: 18px;
+  line-height: 1.0;
 }
 
 /* Keep Paper and Website links on the same line on desktop */
-.portfolio-row .portfolio-info a {
+.portfolio-row .portfolio-info > a {
   display: inline-block;
   vertical-align: middle;
   white-space: nowrap;
   margin-right: 12px;
+  margin-top: 4px;  /* 和作者之间的间距 */
 }
 .portfolio-row .portfolio-info a small {
   display: inline-block;
@@ -1282,6 +1283,38 @@ ul.social-links li:last-child a {
   box-sizing: border-box;
   margin-bottom: 24px;
   padding: 0;
+}
+
+/* 宽屏模式下的横向布局 */
+.portfolio-row .portfolio-wrapper {
+  display: flex !important;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.portfolio-row .portfolio-wrapper > a {
+  flex-shrink: 0;
+}
+
+.portfolio-row .portfolio-wrapper img {
+  width: 200px !important;  /* 按页面宽度比例，可改成 20%、30% 等 */
+  height: auto;
+  margin-right: 24px;
+  border-radius: 8px;
+  position: static !important;
+}
+
+.portfolio-row .portfolio-info {
+  flex: 1;
+  min-width: 0; /* 防止 flex 子元素溢出，确保文字换行 */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.portfolio-row .portfolio-info h5.name {
+  white-space: normal !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Mobile view: Stack image and text */
