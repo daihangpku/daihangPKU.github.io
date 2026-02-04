@@ -44,24 +44,29 @@
 
         $('#contact-form').on('submit', function (e) {
             if (!e.isDefaultPrevented()) {
-                var url = "contact_form/contact_form.php";
+                var url = $(this).attr('action');
 
                 $.ajax({
                     type: "POST",
                     url: url,
                     data: $(this).serialize(),
+                    dataType: 'json',
                     success: function (data)
                     {
-                        var messageAlert = 'alert-' + data.type;
-                        var messageText = data.message;
+                        var messageAlert = 'alert-success';
+                        var messageText = "Your message has been sent successfully!";
 
                         var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
                         if (messageAlert && messageText) {
                             $('#contact-form').find('.messages').html(alertBox);
-                            if (messageAlert == "alert-success") {
-                                $('#contact-form')[0].reset();
-                            }
+                            $('#contact-form')[0].reset();
                         }
+                    },
+                    error: function() {
+                        var messageAlert = 'alert-danger';
+                        var messageText = "There was an error while submitting the form. Please try again later";
+                        var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+                        $('#contact-form').find('.messages').html(alertBox);
                     }
                 });
                 return false;
