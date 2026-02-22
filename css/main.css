@@ -1315,6 +1315,7 @@ ul.social-links li:last-child a {
   white-space: normal !important;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  line-height: 1.2;
 }
 
 /* Mobile view: Stack image and text */
